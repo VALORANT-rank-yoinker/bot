@@ -1,0 +1,20 @@
+{
+  "name": "vrybot",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/zayKenyon/vRY-bot.git",
+  "author": "zay <isaac@kenyon.co.uk>",
+  "license": "MIT",
+  "scripts": {
+    "index": "node --trace-warnings src/index.js",
+    "deploy-commands": "node src/deploy-commands.js",
+    "start": "yarn run deploy-commands && yarn run index"
+  },
+  "dependencies": {
+    "@discordjs/rest": "^1.1.0",
+    "discord.js": "^14.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.22.0"
+  }
+}
