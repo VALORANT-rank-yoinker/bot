@@ -20,17 +20,24 @@ module.exports = {
 			repo: 'VALORANT-rank-yoinker',
 		});
 
-		const releaseName = latestRelease.data.assets[0].name;
-		const releaseLink = latestRelease.data.assets[0].browser_download_url;
-
 		const target = interaction.options?.getUser('target');
-		if (!target) {
-			return await interaction.reply(hyperlink(releaseName, releaseLink));
+		if (latestRelease.data.assets[0].content_type === 'application/x-zip-compressed') {
+			const releaseName = latestRelease.data.assets[0].name;
+			const releaseLink = latestRelease.data.assets[0].browser_download_url;
+
+			if (!target) {
+				return await interaction.reply(hyperlink(releaseName, releaseLink));
+			}
+
+			await interaction.reply({
+				content: `${italic(`Zip for ${target}`)}:
+${hyperlink(releaseName, releaseLink)}`,
+			});
 		}
 
 		await interaction.reply({
-			content: `${italic(`Zip for ${target}`)}:
-${hyperlink(releaseName, releaseLink)}`,
+			content: `${italic(`Zipball for ${target}`)} 
+${latestRelease.data.assets[0].zipball_url}`,
 		});
 	},
 };
