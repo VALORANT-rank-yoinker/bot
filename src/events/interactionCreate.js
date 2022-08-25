@@ -49,7 +49,7 @@ module.exports = {
 					.edit(`ToDo: ${todoInput}`);
 
 				await interaction.reply({
-					content: `Edited to ${inlineCode(todoInput)}`,
+					content: `Edited to: ${inlineCode(todoInput)}`,
 					ephemeral: true,
 				});
 			}
