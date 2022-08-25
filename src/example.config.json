@@ -2,5 +2,6 @@
   "token": "your-token-goes-here",
   "clientId": "",
   "guildId": "",
-  "todoChannelId": ""
+  "todoChannelId": "",
+  "githubPersonalAccessToken": ""
 }
