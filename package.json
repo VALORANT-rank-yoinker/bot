@@ -2,7 +2,7 @@
   "name": "vrybot",
   "version": "1.0.0",
   "main": "src/index.js",
-  "repository": "https://github.com/zayKenyon/vRY-bot.git",
+  "repository": "https://github.com/zayKenyon/vrybot.git",
   "author": "zay <isaac@kenyon.co.uk>",
   "license": "MIT",
   "scripts": {
