@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, hyperlink } = require('discord.js');
+const { SlashCommandBuilder, hyperlink, italic } = require('discord.js');
 const { Octokit } = require('@octokit/core');
 const { githubPersonalAccessToken } = require('../config.json');
 
@@ -20,8 +20,17 @@ module.exports = {
 			repo: 'VALORANT-rank-yoinker',
 		});
 
+		const releaseName = latestRelease.data.assets[0].name;
+		const releaseLink = latestRelease.data.assets[0].browser_download_url;
+
+		const target = interaction.options?.getUser('target');
+		if (!target) {
+			return await interaction.reply(hyperlink(releaseName, releaseLink));
+		}
+
 		await interaction.reply({
-			content: hyperlink(latestRelease.data.assets[0].name, latestRelease.data.assets[0].browser_download_url),
+			content: `${italic(`Zip for ${target}`)}:
+${hyperlink(releaseName, releaseLink)}`,
 		});
 	},
 };
