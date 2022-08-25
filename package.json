@@ -6,15 +6,23 @@
   "author": "zay <isaac@kenyon.co.uk>",
   "license": "MIT",
   "scripts": {
+    "commit": "cz",
     "index": "node --trace-warnings src/index.js",
     "deploy-commands": "node src/deploy-commands.js",
     "start": "yarn run deploy-commands && yarn run index"
   },
   "dependencies": {
     "@discordjs/rest": "^1.1.0",
+    "commitizen": "^4.2.5",
     "discord.js": "^14.3.0"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.22.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
